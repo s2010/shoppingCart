@@ -14,8 +14,12 @@ use Slim\Views\Twig;
 
 class HomeController
 {
-    public function index(Request $request, Response $response,Twig $view)
+    public function index(Request $request, Response $response, Twig $view, Product $product)
     {
-        return $view->render();
+        $products = $product->get();
+
+        return $view->render($response, 'home.twig', [
+            'products' => $products
+        ]);
     }
 }

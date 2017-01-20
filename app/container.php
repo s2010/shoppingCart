@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Bashayer
@@ -7,6 +8,7 @@
  */
 use function DI\get;
 use Interop\Container\ContainerInterface;
+use shoppingCart\Models\Product;
 use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
 
@@ -26,5 +28,9 @@ return [
         ));
 
         return $twig;
-}
+      },
+
+    Product::class => function (ContainerInterface $c) {
+            return new Product;
+    },
 ];
