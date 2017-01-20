@@ -11,6 +11,8 @@ class Product extends Model
 
     public function hasLowStock()
     {
+        //first if check if the stock is empty
+        
         if ($this->outOfStock()) {
             return false;
         }

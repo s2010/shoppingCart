@@ -6,4 +6,6 @@
  * Time: 2:41 PM
  */
 
-$app->get('/',['Cart\Controllers\HomeController', 'index'])->setName('home');
+$app->get('/',['shoppingCart\Controllers\HomeController', 'index'])->setName('home');
+
+$app->get('/products/{slug}', ['shoppingCart\Controllers\ProductController', 'get'])->setName('product.get');
