@@ -105,6 +105,9 @@ class Basket
         return $total;
     }
 
+    //it will refresh if the item with the latest qty in the stock
+    //users can't checkout if the stock above what we have in the stock
+    
     public function refresh()
     {
         foreach ($this->all() as $item) {

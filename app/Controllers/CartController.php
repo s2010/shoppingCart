@@ -57,7 +57,7 @@ class CartController
         try {
             $this->basket->update($product, $request->getParam('quantity'));
         } catch (QuantityExceededException $e) {
-            //
+            //flash massage but users should not reach this point we can prevent within the form
         }
 
         return $response->withRedirect($router->pathFor('cart.index'));
