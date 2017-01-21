@@ -7,7 +7,9 @@
  */
 
 use shoppingCart\App;
+use Slim\Views\Twig;
 use Illuminate\Database\Capsule\Manager as Capsule;
+
 session_start();
 
 require __DIR__ .'/../vendor/autoload.php';
@@ -29,3 +31,6 @@ $capsule->addConnection([
 
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
+
+$app->add(new \shoppingCart\Middleware\ValidationErrorsMiddleware($container->get(Twig::class)));
+$app->add(new \shoppingCart\Middleware\OldInputMiddleware($container->get(Twig::class)));

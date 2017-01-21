@@ -12,13 +12,17 @@ use Interop\Container\ContainerInterface;
 use shoppingCart\Basket\Basket;
 use shoppingCart\Models\Product;
 use shoppingCart\Support\Storage\Contracts\StorageInterface;
+use shoppingCart\Validation\Contracts\ValidatorInterface;
 use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
 
 return [
 
    'router' => get(Slim\Route::class),
-
+    
+    ValidatorInterface::class => function (ContainerInterface $c) {
+        return new Validator;
+    },
     StorageInterface::class => function (ContainerInterface $c) {
         return new SessionStorage('cart');
     },
