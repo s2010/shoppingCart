@@ -1,6 +1,6 @@
 <?php
 
-namespace Cart\Controllers;
+namespace shoppingCart\Controllers;
 
 use Slim\Router;
 use Slim\Views\Twig;
@@ -98,6 +98,7 @@ class OrderController
             $this->getQuantities($this->basket->all())
         );
 
+        //payment handling
         $result = Braintree_Transaction::sale([
             'amount' => $this->basket->subTotal() + 5,
             'paymentMethodNonce' => $request->getParam('payment_method_nonce'),
@@ -106,6 +107,7 @@ class OrderController
             ]
         ]);
 
+        //after payment handling
         $event = new \shoppingCart\Events\OrderWasCreated($order, $this->basket);
 
         if (!$result->success) {

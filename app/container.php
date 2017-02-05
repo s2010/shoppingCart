@@ -6,6 +6,10 @@
  * Time: 2:28 PM
  */
 
+use shoppingCart\Models\Address;
+use shoppingCart\Models\Customer;
+use shoppingCart\Models\Order;
+use shoppingCart\Models\Payment;
 use shoppingCart\Support\Storage\SessionStorage;
 use function DI\get;
 use Interop\Container\ContainerInterface;
@@ -19,7 +23,7 @@ use Slim\Views\TwigExtension;
 return [
 
    'router' => get(Slim\Route::class),
-    
+
     ValidatorInterface::class => function (ContainerInterface $c) {
         return new Validator;
     },
@@ -44,6 +48,19 @@ return [
 
     Product::class => function (ContainerInterface $c) {
             return new Product;
+    }
+    ,
+    Order::class => function (ContainerInterface $c) {
+        return new Order;
+    },
+    Customer::class => function (ContainerInterface $c) {
+        return new Customer;
+    },
+    Address::class => function (ContainerInterface $c) {
+        return new Address;
+    },
+    Payment::class => function (ContainerInterface $c) {
+        return new Payment;
     },
     Basket::class => function (ContainerInterface $c) {
         return new Basket(

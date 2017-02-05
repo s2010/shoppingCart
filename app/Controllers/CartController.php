@@ -1,6 +1,6 @@
 <?php
 
-namespace Cart\Controllers;
+namespace shoppingCart\Controllers;
 
 use Slim\Router;
 use Slim\Views\Twig;

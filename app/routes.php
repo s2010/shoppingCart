@@ -17,3 +17,5 @@ $app->post('/cart/update/{slug}', ['shoppingCart\Controllers\CartController', 'u
 $app->get('/order', ['shoppingCart\Controllers\OrderController', 'index'])->setName('order.index');
 $app->get('/order/{hash}', ['shoppingCart\Controllers\OrderController', 'show'])->setName('order.show');
 $app->post('/order', ['shoppingCart\Controllers\OrderController', 'create'])->setName('order.create');
+
+$app->get('/braintree/token', ['shoppingCart\Controllers\BraintreeController', 'token'])->setName('braintree.token');
