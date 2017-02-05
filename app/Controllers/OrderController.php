@@ -46,6 +46,7 @@ class OrderController
         $order = $order->with(['address', 'products'])->where('hash', $hash)->first();
 
         if (!$order) {
+            //you can flash a massage
             return $response->withRedirect($this->router->pathFor('home'));
         }
 
@@ -130,6 +131,7 @@ class OrderController
             'hash' => $hash,
         ]));
     }
+
 
     protected function getQuantities($items)
     {
