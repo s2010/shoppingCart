@@ -29,6 +29,7 @@ class Event
         $this->handlers[] = $handlers;
     }
 
+    //loop through all of our 
     public function dispatch()
     {
         foreach ($this->handlers as $handler) {

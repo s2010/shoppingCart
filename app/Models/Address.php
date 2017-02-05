@@ -2,7 +2,6 @@
 
 namespace shoppingCart\Models;
 
-use shoppingCart\Models\Address;
 use Illuminate\Database\Eloquent\Model;
 
 class Address extends Model

@@ -107,7 +107,7 @@ class OrderController
             ]
         ]);
 
-        //after payment handling
+        //after payment handling events(update stock, mark order paid,empty basket)
         $event = new \shoppingCart\Events\OrderWasCreated($order, $this->basket);
 
         if (!$result->success) {
